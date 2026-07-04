@@ -8,7 +8,7 @@ public class Main {
         int choice;
         System.out.println("========== Welcome to Hotel Booking Management System ==========");
         do{
-            System.out.println("1. View Rooms");
+            System.out.println("1. View Available Rooms");
             System.out.println("2. Book Room");
             System.out.println("3. Cancel Booking");
             System.out.println("404. Owner Mode");
@@ -33,6 +33,13 @@ public class Main {
                     }
                 
                 case 3:
+                    System.out.print("\nEnter The Room Number to Cancel (0 for back)= ");
+                    int rNo = sc.nextInt();
+                    if(rNo != 0){
+                        hotel.cancelRoom(rNo);
+                    }else{
+                        continue;
+                    }
                     break;
 
                 case 404:
@@ -58,9 +65,9 @@ public class Main {
                                     break;
                             
                                 case 2:
-                                    System.out.println("Enter the room number = ");
-                                    int rNo = sc.nextInt();
-                                    hotel.removeRoom(rNo);
+                                    System.out.print("Enter the room number = ");
+                                    int roomNumber = sc.nextInt();
+                                    hotel.removeRoom(roomNumber);
                                     break;
                             }
                         }while(adminChoice != 3);
