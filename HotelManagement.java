@@ -62,9 +62,14 @@ public class HotelManagement {
     public void removeRoom(int rNo){
         for(int i = 0; i < rooms.size(); i++){
             if(rooms.get(i).getRoomNo() == rNo){
-                rooms.remove(rooms.get(i));
-                System.out.println("Room Removed Successfully!");
-                return;
+                if(!rooms.get(i).isBooked()){
+                    rooms.remove(rooms.get(i));
+                    System.out.println("Room Removed Successfully!");
+                    return;
+                }else{
+                    System.out.println("Room is already booked please romove the booking first!!");
+                    return;
+                }
             }
         }
     }
