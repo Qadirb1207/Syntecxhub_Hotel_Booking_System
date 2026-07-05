@@ -54,9 +54,14 @@ public class HotelManagement {
             System.out.println("Invalid Room Number please enter the correct room number");
         }
     }
+
     public void addRoom(Room r){
-        rooms.add(r);
-        System.out.println("Room Added Successfully!!!");
+        if(r.getRoomNo() > 0){
+            rooms.add(r);
+        }
+        if(validateRoomNo(r.getRoomNo())){
+            System.out.println("Room Added Successfully!!!");
+        }
     }
 
     public void removeRoom(int rNo){
