@@ -17,6 +17,13 @@ public class HotelManagement {
             }
         }
     }
+    public void viewBookedRooms(){
+        for (Room r : rooms) {
+            if(r.isBooked()){
+                System.out.println(r);
+            }
+        }
+    }
 
     public boolean validateRoomNo(int roomNo){
         boolean isCorrect = false;
@@ -65,17 +72,23 @@ public class HotelManagement {
     }
 
     public void removeRoom(int rNo){
-        for(int i = 0; i < rooms.size(); i++){
-            if(rooms.get(i).getRoomNo() == rNo){
-                if(!rooms.get(i).isBooked()){
-                    rooms.remove(rooms.get(i));
-                    System.out.println("Room Removed Successfully!");
-                    return;
-                }else{
-                    System.out.println("Room is already booked please romove the booking first!!");
-                    return;
+        if(validateRoomNo(rNo)){
+            for(int i = 0; i < rooms.size(); i++){
+                if(rooms.get(i).getRoomNo() == rNo){
+                    if(!rooms.get(i).isBooked()){
+                        rooms.remove(rooms.get(i));
+                        System.out.println("Room Removed Successfully!");
+                        return;
+                    }else{
+                        System.out.println("Room is already booked please romove the booking first!!");
+                        return;
+                    }
+                
                 }
+            
             }
+        }else{
+            System.out.println("Invalid Room Number!! Select the correct Room Number!!");
         }
     }
 

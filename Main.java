@@ -49,10 +49,11 @@ public class Main {
                     if(pin.equals(adminPin)){
                         int adminChoice;
                         do{
-                            System.out.println("====== Welcome To Admin Mode =====");
+                            System.out.println("====== Welcome To Owner Mode =====");
                             System.out.println("1. Add Room");
                             System.out.println("2. Remove Room");
-                            System.out.println("3. Default Mode");
+                            System.out.println("3. View Booked Room");
+                            System.out.println("4. Default Mode");
                             System.out.print("\nEnter The choice = ");
                             adminChoice = sc.nextInt();
 
@@ -69,8 +70,13 @@ public class Main {
                                     int roomNumber = sc.nextInt();
                                     hotel.removeRoom(roomNumber);
                                     break;
+                                
+                                case 3:
+                                    System.out.println("Following are the booked rooms:\n");
+                                    hotel.viewBookedRooms();
+                                    break;
                             }
-                        }while(adminChoice != 3);
+                        }while(adminChoice != 4);
                     }else{
                         System.out.println("Invalid Pin");
                         continue;
